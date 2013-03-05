@@ -1,9 +1,9 @@
 {
   "name": "bmojs",
-  "fullName": "bmojs",
+  "fullName": "bmo.js",
   "id": "jid1-BEGsASMi99Bz2w",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "Library that can query Bugzilla's REST API",
+  "author": "Wes Kocher",
   "license": "MPL 2.0",
   "version": "0.1"
 }
