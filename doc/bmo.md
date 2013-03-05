@@ -73,7 +73,7 @@ Searches Bugzilla and returns the bugs that are the result from the search.
 @param searchObj {object}
 Object of JSON-paired search parameters.
 
-    var count = require("./bmo").count({"product": "Add-on SDK", "priority": "P4"});
+    var search = require("./bmo").search({"product": "Add-on SDK", "priority": "P4"});
 
 
 @returns {promise}
