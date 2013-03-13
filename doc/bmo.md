@@ -1,6 +1,6 @@
 This module provides access to Bugzilla's REST API.
 
-<api name="bug">
+<api name="getBug">
 @function
 Looks up and returns a single bug.
 
@@ -80,32 +80,32 @@ Object of JSON-paired search parameters.
 A promise that will resolve to an object of bugs matching the parameters of the search.
 </api>
 
-<api name="comments">
+<api name="getComments">
 @function
 Searches Bugzilla for a specific bug's comments.
 
 @param id {number}
 ID of the bug whose comments should be returned.
 
-    var comments = require("./bmo").comments(722597);
+    var comments = require("./bmo").getComments(722597);
 
 @returns {promise}
 A promise that will resolve to an object of all comments from the given bug.
 </api>
 
-<api name="attachments">
+<api name="getAttachments">
 @function
 Return a given bug's attachments, optionally with the attachment data itself.
 
 @param id {number}
 ID of the bug whose attachments should be returned.
 
-    var attachments = require("./bmo").attachments(722597);
+    var attachments = require("./bmo").getAttachments(722597);
 
 @param data {boolean}
 Set to true to also return the attachment data. (optional)
 
-    var attachments = require("./bmo").attachments(722597, true);
+    var attachments = require("./bmo").getAttachments(722597, true);
 
 @returns {promise}
 A promise that will resolve to an object of all attachments from the given bug.

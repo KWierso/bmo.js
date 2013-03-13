@@ -71,7 +71,7 @@ exports["test count split"] = function(assert, done) {
  */
 // Let's get bug 722597, all default fields
 exports["test bug get"] = function(assert, done) {
-  bmo.bug("722597").then(function success(bug) {
+  bmo.getBug("722597").then(function success(bug) {
     assert.ok(bug.error == undefined, "test that bug get() doesn't return an error");
     done();
   });
@@ -81,7 +81,7 @@ exports["test bug get"] = function(assert, done) {
  *  Test get()ting a single bug, only id and summary fields
  */
 exports["test bug get specific fields"] = function(assert, done) {
-  bmo.bug(722597,"id,summary").then(function success(bug) {
+  bmo.getBug(722597,"id,summary").then(function success(bug) {
     assert.ok(bug.id == 722597, "test bug id is correct");
     assert.ok(typeof bug.summary == "string", "test bug id is a string");
     
@@ -100,7 +100,7 @@ exports["test bug get specific fields"] = function(assert, done) {
  *  Test get()ting a bug's comments
  */
 exports["test bug get comments"] = function(assert, done) {
-  bmo.comments(722597).then(function success (comments) {
+  bmo.getComments(722597).then(function success (comments) {
     assert.ok(comments[0].hasOwnProperty("is_private") && 
               comments[0].hasOwnProperty("creator") && 
               comments[0].hasOwnProperty("text") && 
@@ -131,7 +131,7 @@ exports["test search"] = function(assert, done) {
  *  Test retrieving a bug's attachments
  */
 exports["test attachments"] = function(assert, done) {
-  bmo.attachments(722597).then(function success(results) {
+  bmo.getAttachments(722597).then(function success(results) {
     assert.ok(results.length >= 1, "test that request returns at least one attachment");    
     assert.ok(typeof results[0].id == "number", "test that first returned attachment has an id");
     done();
@@ -142,7 +142,7 @@ exports["test attachments"] = function(assert, done) {
  *  Test retrieving a bug's attachments with data
  */
 exports["test attachments with data"] = function(assert, done) {
-  bmo.attachments(722597, true).then(function success(results) {
+  bmo.getAttachments(722597, true).then(function success(results) {
     assert.ok(results.length >= 1, "test that request returns at least one attachment");
     assert.ok(typeof results[0].data == "string", "test that the returned attachment includes data");
     done();
