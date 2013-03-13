@@ -127,4 +127,32 @@ exports["test search"] = function(assert, done) {
   });
 }
 
+/*
+ *  Test retrieving a bug's attachments
+ */
+exports["test attachments"] = function(assert, done) {
+  bmo.attachments(722597).then(function success(results) {
+    assert.ok(results.length >= 1, "test that request returns at least one attachment");    
+    assert.ok(typeof results[0].id == "number", "test that first returned attachment has an id");
+    done();
+  });
+}
+
+/*
+ *  Test retrieving a bug's attachments with data
+ */
+exports["test attachments with data"] = function(assert, done) {
+  bmo.attachments(722597, true).then(function success(results) {
+    assert.ok(results.length >= 1, "test that request returns at least one attachment");
+    assert.ok(typeof results[0].data == "string", "test that the returned attachment includes data");
+    done();
+  });
+}
+
+
+
+
+
+
+
 require("sdk/test").run(exports);

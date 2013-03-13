@@ -92,3 +92,21 @@ ID of the bug whose comments should be returned.
 @returns {promise}
 A promise that will resolve to an object of all comments from the given bug.
 </api>
+
+<api name="attachments">
+@function
+Return a given bug's attachments, optionally with the attachment data itself.
+
+@param id {number}
+ID of the bug whose attachments should be returned.
+
+    var attachments = require("./bmo").attachments(722597);
+
+@param data {boolean}
+Set to true to also return the attachment data. (optional)
+
+    var attachments = require("./bmo").attachments(722597, true);
+
+@returns {promise}
+A promise that will resolve to an object of all attachments from the given bug.
+</api>
